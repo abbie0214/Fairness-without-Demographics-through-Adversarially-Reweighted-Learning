@@ -12,6 +12,7 @@ class Primary_NN(nn.Module):
     def __init__(self,indim, primary_hidden_units):
         super().__init__()
 
+        print(indim)
         self.model = nn.Sequential(
             nn.Linear(indim, primary_hidden_units[0]),
             nn.ReLU(),

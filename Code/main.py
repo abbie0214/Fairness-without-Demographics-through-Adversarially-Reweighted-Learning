@@ -15,7 +15,6 @@ from model import Primary_NN, Adversary_NN
 
 
 
-import config
 args = config.parse_args()
 
 indim = args.indim

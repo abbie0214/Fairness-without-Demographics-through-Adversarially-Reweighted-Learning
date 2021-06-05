@@ -7,14 +7,14 @@ def parse_args():
 
 
 
-    parser.add_argument('--lr_primary', type=float, default=0.001,
+    parser.add_argument('--lr_primary', type=float, default=0.01,
                                             help = 'learning rate for encoder')
 
 
-    parser.add_argument('--lr_adversary', type=float, default=0.1,
+    parser.add_argument('--lr_adversary', type=float, default=0.001,
                                             help = 'learning rate for gaussian parameter net')
 
-    parser.add_argument('--num_epochs', type=int, default= 1000 ,
+    parser.add_argument('--num_epochs', type=int, default= 100 ,
                                             help = 'number of epochs')
 
     parser.add_argument('--indim', type=int, default=8,
