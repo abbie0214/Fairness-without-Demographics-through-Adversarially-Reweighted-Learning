@@ -17,7 +17,7 @@ def parse_args():
     parser.add_argument('--num_epochs', type=int, default= 1000 ,
                                             help = 'number of epochs')
 
-    parser.add_argument('--indim', type=int, default=12,
+    parser.add_argument('--indim', type=int, default=8,
                                             help = 'input dimension')
 
     parser.add_argument('--batch_size', type=int, default=512,
