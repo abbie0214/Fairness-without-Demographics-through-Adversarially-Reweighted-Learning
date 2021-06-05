@@ -7,7 +7,7 @@ from torchvision import datasets, transforms
 from tqdm import tqdm
 from training import Train
 from testing import Test
-from uci_data_loader import data_set
+from data_loader import data_set
 import config
 import matplotlib.pyplot as plt
 
