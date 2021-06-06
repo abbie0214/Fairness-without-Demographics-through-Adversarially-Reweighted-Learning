@@ -84,26 +84,25 @@ class Train():
 
 
             self.optimizer.zero_grad()
+            self.adversary_optimizer.zero_grad()
             self.loss_1.backward()
-            self.optimizer.step()
             # print('#########################epoch##########################',epoch)
             # for p in self.primary_net.parameters():
             #     print('primary',p.requires_grad)
+            self.tot_losses_1 += self.loss_1.item() * self.batch_x.shape[0]
 
-
-            self.loss_2 = self.loss_func_2(self.batch_y, self.logits.detach().clone(), self.example_weights, pos_weights = self.pose_weights, adversary_loss_type = 'ce_loss')
-            # print('loss_2',self.loss_2)
-
-            if epoch >= 0:
-                self.adversary_optimizer.zero_grad()
+            if epoch >= 2:
+                self.loss_2 = self.loss_func_2(self.batch_y, self.logits.detach().clone(), self.example_weights,
+                                               pos_weights=self.pose_weights, adversary_loss_type='ce_loss')
+                # print('loss_2',self.loss_2)
                 self.loss_2.backward()
-                self.adversary_optimizer.step()
+                self.tot_losses_2 += self.loss_2.item()* self.batch_x.shape[0]
+            self.optimizer.step()
+            self.adversary_optimizer.step()
             # print('#########################epoch##########################',epoch)
             # for p in self.adversary_net.parameters():
             #     print('adversary',p.requires_grad)
 
-            self.tot_losses_1 += self.loss_1.item() * self.batch_x.shape[0]
-            self.tot_losses_2 += self.loss_2.item()* self.batch_x.shape[0]
 
 
             # _,self.pred = self.prob.max(1)
