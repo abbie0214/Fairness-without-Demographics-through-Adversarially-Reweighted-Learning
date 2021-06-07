@@ -86,50 +86,6 @@ with open(file_path, "r") as file_name:
 print('train_df2', train_df2)
 
 
-###################################################################
-
-# # Construct vocabulary.json, and write to directory:
-
-
-# This is for showing what are the categorials and the detailed classes in each category.
-# For example: {'c_charge_degree': ['M', 'F']}
-
-# cat_cols = train_df.select_dtypes(include='category').columns
-# vocab_dict = {}
-# for col in cat_cols:
-#     vocab_dict[col] = list(set(train_df[col].cat.categories))
-#
-# output_file_path = os.path.join(dataset_base_dir, 'vocabulary.json')
-# with open(output_file_path, mode="w") as output_file:
-#     output_file.write(json.dumps(vocab_dict))
-#     output_file.close()
-# # print('vocab_dict',vocab_dict)
-###################################################################
-# Construct mean_std.json, and write to directory
-# after transfering now 11 all have mean and std
-# orginal only 5 has mean and std: because original there are only 5 are enumerical, others are categorial
-# temp_dict = train_df2.describe().to_dict()
-# mean_std_dict = {}
-# for key, value in temp_dict.items():
-#   mean_std_dict[key] = [value['mean'],value['std']]
-#
-# output_file_path = os.path.join('./data/compas/','mean_std.json')
-# with open(output_file_path, mode="w") as output_file:
-#     output_file.write(json.dumps(mean_std_dict))
-#     output_file.close()
-# print('mean_std_dict modified',mean_std_dict)
-#
-# temp_dict = train_df.describe().to_dict()
-# mean_std_dict = {}
-# for key, value in temp_dict.items():
-#   mean_std_dict[key] = [value['mean'],value['std']]
-#
-# output_file_path = os.path.join('./data/compas/','mean_std_ori.json')
-# with open(output_file_path, mode="w") as output_file:
-#     output_file.write(json.dumps(mean_std_dict))
-#     output_file.close()
-# print('mean_std_dict original',mean_std_dict)
-###################################################################
 class CompasInput():
     """Data reader for Compas dataset."""
     
